@@ -14,16 +14,14 @@ class Hero:
         attack_diterima = attack_power_lawan - self.armor_defence
         print("Serangan terasa : " + str(attack_diterima))
         self.health -= attack_diterima
-        print("Darah " + self.name + " tersisa " + str(self.health))
-
-seshomaru = Hero("Seshomaru", 1000, 40, 50)
-inuyasha = Hero("Inuyasha", 800, 90, 20)
-
-seshomaru.Menyerang(inuyasha)
-print("\n")
-inuyasha.Menyerang(seshomaru)
-def Menyerang(self, lawan):
+        print("Darah " + self.name + " tersisa \n\n" + str(self.health))
     
 if __name__ == "__main__":
-    def Menyerang(self, lawan):
-    
+    # jalannya program sebaiknya dijalankan setelah main()
+    seshomaru = Hero("Seshomaru", 1000, 40, 50)
+    inuyasha = Hero("Inuyasha", 800, 90, 20)
+
+    # pertarungan tanpa henti, dimulai!!!
+    while True:
+        seshomaru.Menyerang(inuyasha)
+        inuyasha.Menyerang(seshomaru)
