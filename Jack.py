@@ -55,6 +55,15 @@ wishMe()
 query = takeCommand()
 
 def menu():
+    print("Daftar Menu yang tersedia: ")
+    print("[1] Wikipedia")
+    print("[2] open youtube")
+    print("[3] open google")
+    print("[4] play music")
+    print("[5] the time")
+    print("[6] Thank you Jack (Exit)")
+    
+    pilih = input("") in query.lower()
     if "wikipedia" in query.lower():
         to_wikipedia()
     elif "open youtube" in query.lower():
