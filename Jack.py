@@ -54,47 +54,59 @@ Speak("Hello my name is Jack, I can help you!")
 wishMe()
 query = takeCommand()
 
-#Logic for tasks as per query
+def menu():
+    if "wikipedia" in query.lower():
+        to_wikipedia()
+    elif "open youtube" in query.lower():
+        to_youtube()
+    elif "open google" in query.lower():
+        to_google()
+    elif "play music" in query.lower():
+        to_music()
+    elif "the time" in query.lower():
+        to_thetime()
+    elif "Thank you Jack" in query.lower():
+        to_exit()
+    else:
+        back_to_menu()
+
 def back_to_menu():
     menu()
 
-def menu():
-    if "wikipedia" in query.lower():
-        Speak("searching wikipedia....")
-        query = query.replace("wikipedia", "")
-        results = wikipedia.summary(query, sentences=2)
-        print(results)
-        Speak(results)
-        back_to_menu()
-        
-    elif "open youtube" in query.lower():
-        url = "youtube.com"
-        chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
-        webbrowser.get(chrome_path).open(url)
-        back_to_menu()
-        
-    elif "open google" in query.lower():
-        url = "google.com"
-        chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
-        webbrowser.get(chrome_path).open(url)
-        back_to_menu()
-        
-    elif "play music" in query.lower():
-        songs_dir = "C:\\Users\\User\\Music\\Music"
-        songs = os.listdir(songs_dir)
-        print(songs)
-        os.startfile(os.path.join(songs_dir, songs[0]))
-        back_to_menu()
-        
-    elif "the time" in query.lower():
-        strtime = datetime.datetime.now().strftime("%H:%M:%S")
-        Speak(f"{MASTER} the time is {strtime}")
-        back_to_menu()
+def to_wikipedia():
+    Speak("searching wikipedia....")
+    query = query.replace("wikipedia", "")
+    results = wikipedia.summary(query, sentences=2)
+    print(results)
+    Speak(results)
+    back_to_menu()
 
-def exit():
-    if "Thank you Jack" in query.lower():
-        Speak("You are welcome sir")
+def to_youtube():
+    url = "youtube.com"
+    chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
+    webbrowser.get(chrome_path).open(url)
+    back_to_menu()
 
+def to_google():
+    url = "google.com"
+    chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
+    webbrowser.get(chrome_path).open(url)
+    back_to_menu()
+
+def to_music():
+    songs_dir = "C:\\Users\\User\\Music\\Music"
+    songs = os.listdir(songs_dir)
+    print(songs)
+    os.startfile(os.path.join(songs_dir, songs[0]))
+    back_to_menu()
+
+def to_thetime():
+    strtime = datetime.datetime.now().strftime("%H:%M:%S")
+    Speak(f"{MASTER} the time is {strtime}")
+    back_to_menu()
+
+def to_exit():
+    Speak("You are welcome sir")
 
 if __name__ == "__main__":
     menu()
