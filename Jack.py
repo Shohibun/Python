@@ -65,26 +65,31 @@ def menu():
         results = wikipedia.summary(query, sentences=2)
         print(results)
         Speak(results)
+        back_to_menu()
         
     elif "open youtube" in query.lower():
         url = "youtube.com"
         chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
         webbrowser.get(chrome_path).open(url)
+        back_to_menu()
         
     elif "open google" in query.lower():
         url = "google.com"
         chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
         webbrowser.get(chrome_path).open(url)
+        back_to_menu()
         
     elif "play music" in query.lower():
         songs_dir = "C:\\Users\\User\\Music\\Music"
         songs = os.listdir(songs_dir)
         print(songs)
         os.startfile(os.path.join(songs_dir, songs[0]))
+        back_to_menu()
         
     elif "the time" in query.lower():
         strtime = datetime.datetime.now().strftime("%H:%M:%S")
         Speak(f"{MASTER} the time is {strtime}")
+        back_to_menu()
 
 def exit():
     if "Thank you Jack" in query.lower():
