@@ -6,53 +6,6 @@ import webbrowser
 import os
 import smtplib
 
-print("initializing Jack")
-
-MASTER = "Shohibun"
-
-engine = pyttsx3.init("sapi5")
-voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[0].id)
-
-#Speak
-def Speak(text):
-    engine.say(text)
-    engine.runAndWait()
-
-#Function 
-def wishMe():
-    hour = int(datetime.datetime.now().hour)
-
-    if hour >= 0 and hour < 12:
-        Speak("Good Morning" + MASTER)
-    elif hour >= 12 and hour < 18:
-        Speak("good Afternoon" + MASTER)
-    else:
-        Speak("Good Evening" + MASTER)
-        Speak("")
-
-#Microphone
-def takeCommand():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening....")
-        audio = r.listen(source)
-
-    try:
-        print("Recognizing....")
-        query = r.recognize_google(audio, language="en-us")
-        print(f"user said: {query}\n")
-    
-    except Exception as e:
-        print("Say that again please....")
-        query = None
-
-    return query
-
-#Main Start Here
-Speak("Hello my name is Jack, I can help you!")
-wishMe()
-query = takeCommand()
 
 def menu():
     print("Daftar Menu yang tersedia: ")
@@ -62,6 +15,51 @@ def menu():
     print("[4] play music")
     print("[5] the time")
     print("[6] Thank you Jack (Exit)")
+    
+    MASTER = "Shohibun"
+    engine = pyttsx3.init("sapi5")
+    voices = engine.getProperty("voices")
+    engine.setProperty("voice", voices[0].id)
+    
+    #Speak
+    def Speak(text):
+        engine.say(text)
+        engine.runAndWait()
+        
+    #Function
+    def wishMe():
+        hour = int(datetime.datetime.now().hour)
+        
+        if hour >= 0 and hour < 12:
+            Speak("Good Morning" + MASTER)
+        elif hour >= 12 and hour < 18:
+            Speak("good Afternoon" + MASTER)
+        else:
+            Speak("Good Evening" + MASTER)
+            Speak("")
+        
+    #Microphone
+    def takeCommand():
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Listening....")
+            audio = r.listen(source)
+            
+        try:
+            print("Recognizing....")
+            query = r.recognize_google(audio, language="en-us")
+            print(f"user said: {query}\n")
+            
+        except Exception as e:
+            print("Say that again please....")
+            query = None
+            
+        return query
+        
+    #Main Start Here
+    Speak("Hello my name is Jack, I can help you!")
+    wishMe()
+    query = takeCommand()
     
     pilih = input("") in query.lower()
     if "wikipedia" in query.lower():
