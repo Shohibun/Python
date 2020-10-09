@@ -1,0 +1,26 @@
+git adalah suatu vcs (Version Control System) dimana git ini berisi sebuah repository
+gitHub adalah kumpulan dari beberapa git(vcs) dimana sbuah repository ini ditampung / disimpan didalam sebuah cloud atau disimpan di gitHub
+
+Git Workflow - Alur Kerja Git
+- Working Directory (Area Kerja)
+- Stage (Area untuk menyimpan perubahanmu ketika sudah melakukang git add)
+- Head (Area untuk menyimpan daftar perubahan yang dilakukan dengan git commit)
+
+git init = menginisialisasikan folder sebagai git / membuat repository pada file tersebut.
+git clone = mendownload file yang berada di github / mengambil sebuah repository di github.
+git status = mengecek apa saja yang berubah
+git add = menambahkan file file yang sudah di ubah tadi kedalam staging area 
+git commit -m"" = menyimpan perubahan dan memberi tanda/nama yang sudah dilakukan dengan pesan
+git remote = memberi alamat/tujuan kemana codingan yang telah diubah itu dikirim kemana
+git push -u origin master = menyimpan file file perubahan tadi ke sebuah cloud / github (mengupload)
+git branch = membuat tempat kerja baru tanpa mempengaruhi branch branch yang lain.
+git checkout = memindahkan / menswitch branch
+Branch / Cabang = digunakan untuk membuat tempat kerja baru terisolasi dari pekerjaan yang lain. Conothnya ketika ingin menambah suatu fitur agar tidak terjadi perubahan di branch utama, maka kita gunakan branch.
+git pull = berfungsi untuk menarik/mengambil file yang telah di push oleh teman
+git merge = berfungsi untuk menggabungkan kembali file file yang berada di branch tadi.
+===========================================================================================================
+GITHUB DESKTOP
+- Easy Commit : memudahkan proses commit dan menambahkan author
+- Branching : pindah branch dan melihat status CI
+- Syntax Highlight : perubahan terlihat jelas dengan syntax highlighting
+
